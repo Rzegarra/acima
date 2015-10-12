@@ -11,8 +11,15 @@ block content
       li
         a(href='logout') Salir
   else
-    ul
-      li
-        a(href='auth/twitter') Login con Twitter
-      li
-        a(href='auth/facebook') Login con Facebook
+    div#contact-area
+      form(method='post')
+          label(for='email') email:
+            input(type='email',name='user',id='user')        
+          label(for='password') password:
+            input(type='password',name='password',id='password')  
+            input(type='submit',name='submit',value='Submit').submit-button
+      ul
+        li
+          a(href='auth/twitter') Login con Twitter
+        li
+          a(href='auth/facebook') Login con Facebook
