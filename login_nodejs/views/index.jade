@@ -1,8 +1,6 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
   if(user)
     ul
       li
@@ -11,15 +9,19 @@ block content
       li
         a(href='logout') Salir
   else
-    div#contact-area
-      form(method='post')
-          label(for='email') email:
-            input(type='email',name='user',id='user')        
-          label(for='password') password:
-            input(type='password',name='password',id='password')  
-            input(type='submit',name='submit',value='Submit').submit-button
-      ul
-        li
-          a(href='auth/twitter') Login con Twitter
-        li
-          a(href='auth/facebook') Login con Facebook
+    .imagen
+      picture
+        img(src='/svg/amic.svg')
+    .log
+      form(action='', method='post')
+        .form-user
+          label(for='email')
+          input.form-control(type='Email', placeholder='Email')
+        .form-pass
+          label(for='password')
+          input.form-control(type='Password', placeholder='Password')
+        button.button login
+        .social
+          a.icons.facebook(href='auth/facebook')
+          a.icons.twitter(href='auth/twitter')
+          a.icons.google(href='auth/twitter')

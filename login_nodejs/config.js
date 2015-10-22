@@ -5,8 +5,8 @@ var config={
 	},
 
 	facebook :{
-		id:'454929544709548',
-		secret:'962fe040869edb3975ef320b89d7e0f0'
+		id:'1077114865634794',
+		secret:'05f9a32ac1f9193887edb9e668a6ac4d'
 	}
 };
 module.exports = config;
