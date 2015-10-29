@@ -25,7 +25,6 @@
     var map;
     var markNumber=-1;
     var pos;
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         pos = {
@@ -36,16 +35,23 @@
           zoom: 15,
           center:pos// Center the map on Chicago, USA.
         });
+        poly = new google.maps.Polyline({
+          strokeColor: '#000000',
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });
+        poly.setMap(map);
+        map.addListener('click', addLatLng);
+
         console.log(pos);
       });
     }
 
         function initMap() {
-          var infowindow = new google.maps.InfoWindow({
-            content: ''});
           if (navigator.geolocation) {
             console.log('si');
           }
+          var originalMapCenter = new google.maps.LatLng(-25.363882, 131.044922);
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 7,
             center:{lat: -10.087710, lng: -75.470982}// Center the map on Chicago, USA.
@@ -60,11 +66,7 @@
           poly.setMap(map);
 
           // Add a listener for the click event
-          map.addListener('click', addLatLng);
-          var infow = new google.maps.InfoWindow({
-            content: ''});
         }
-
         function addLatLng(event) {
 
           markNumber++;
